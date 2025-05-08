@@ -136,6 +136,12 @@ nav {
 .user-card .card-header .profile-info {
   flex: 1;
 }
+.user-card .card-header .profile-info .profile-identity p {
+  color: #0079ff;
+}
+.user-card .card-header .profile-info p {
+  font-size: 12px;
+}
 .user-card .card-bio {
   margin: 1rem 0;
 }
@@ -188,5 +194,12 @@ nav {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+  }
+  main .user-card {
+    padding-bottom: 2rem;
+  }
+  .other-info-col {
+    flex-direction: row !important;
+    justify-content: space-around;
   }
 }/*# sourceMappingURL=style.css.map */

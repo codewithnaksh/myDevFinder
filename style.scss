@@ -123,6 +123,14 @@ nav{
         }
         .profile-info{
             flex: 1;
+            .profile-identity{
+                p{
+                    color: #0079ff;
+                }
+            }
+            p{
+                font-size: 12px;
+            }
         }
     }
     .card-bio{
@@ -176,5 +184,12 @@ nav{
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        .user-card{
+            padding-bottom: 2rem;
+        }
+    }
+    .other-info-col{
+        flex-direction: row !important;
+        justify-content: space-around;
     }
 }
