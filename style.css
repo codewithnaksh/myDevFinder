@@ -17,12 +17,18 @@ html, body {
   width: 100%;
 }
 
+body {
+  background-color: var(--dark-primary);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 main {
   width: 100%;
   min-height: 100%;
   max-width: 425px;
   font-family: "Space Mono", monospace;
-  background-color: var(--dark-primary);
   color: var(--dark-secondary);
   padding: 1rem;
 }
@@ -107,13 +113,77 @@ nav {
 
 .user-card {
   width: 100%;
-  height: 300px;
   background-color: var(--dark-tertiary);
   border-radius: 10px;
+  padding: 1rem;
+}
+.user-card .card-header {
+  width: 100%;
+  display: flex;
+  gap: 1rem;
+}
+.user-card .card-header .profile-pic {
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+  border: 1px solid var(--dark-secondary);
+}
+.user-card .card-header .profile-pic img {
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.user-card .card-header .profile-info {
+  flex: 1;
+}
+.user-card .card-bio {
+  margin: 1rem 0;
+}
+.user-card .user-aura {
+  width: 100%;
+  padding: 1rem;
+  margin: 2rem 0;
+  background-color: var(--dark-primary);
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-evenly;
+}
+.user-card .user-aura .user-aura-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+.user-card .other-info-container {
+  width: 100%;
+}
+.user-card .other-info-container .other-info-col {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+.user-card .other-info-container .other-info-col .other-info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.user-card .other-info-container .other-info-col .other-info .other-info-logo {
+  width: 25px;
+  height: 25px;
+}
+.user-card .other-info-container .other-info-col .other-info .other-info-logo img {
+  width: 80%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.user-card .other-info-container .other-info-col .other-info a {
+  text-decoration: none;
+  color: var(--dark-secondary);
 }
 
 @media screen and (min-width: 426px) {
   main {
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
