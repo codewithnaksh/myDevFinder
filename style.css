@@ -136,8 +136,17 @@ nav {
 .user-card .card-header .profile-info {
   flex: 1;
 }
+.user-card .card-header .profile-info .profile-identity h2 {
+  line-height: 1;
+}
 .user-card .card-header .profile-info .profile-identity p {
+  margin-top: 8px;
   color: #0079ff;
+}
+.user-card .card-header .profile-info .profile-identity p span {
+  font-size: 1rem;
+  font-weight: 500;
+  padding-right: 2px;
 }
 .user-card .card-header .profile-info p {
   font-size: 12px;

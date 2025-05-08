@@ -124,8 +124,17 @@ nav{
         .profile-info{
             flex: 1;
             .profile-identity{
+                h2{
+                    line-height: 1;
+                }
                 p{
+                    margin-top: 8px;
                     color: #0079ff;
+                    span{
+                        font-size: 1rem;
+                        font-weight: 500;
+                        padding-right: 2px;
+                    }
                 }
             }
             p{

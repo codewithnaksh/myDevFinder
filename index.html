@@ -24,7 +24,7 @@
                 <div class="search-icon">
                     <img src="./assets/icon-search.svg" alt="search svg">
                 </div>
-                <input type="text" placeholder="Search Github username..." name="username">
+                <input type="text" placeholder="Search Github username..." name="username" required>
                 <input type="submit" value="Search">
             </form>
             <div class="user-card">
@@ -35,7 +35,7 @@
                     <div class="profile-info">
                         <div class="profile-identity">
                             <h2>Nakshatra</h2>
-                            <p>@codewithnaksh</p>
+                            <p><span>@</span>codewithnaksh</p>
                         </div>
                         <p>Joined 25 Jan 2011</p>
                     </div>
@@ -46,15 +46,15 @@
                 <div class="user-aura">
                     <div class="user-aura-col">
                         <p>Repos</p>
-                        <h3>28</h3>
+                        <h3 id="repos">28</h3>
                     </div>
                     <div class="user-aura-col">
                         <p>Followers</p>
-                        <h3>5</h3>
+                        <h3 id="followers">5</h3>
                     </div>
                     <div class="user-aura-col">
                         <p>Following</p>
-                        <h3>9</h3>
+                        <h3 id="following">9</h3>
                     </div>
                 </div>
                 <div class="other-info-container">
@@ -63,13 +63,13 @@
                             <div class="other-info-logo">
                                 <img src="./assets/icon-location-white.svg" alt="location svg">
                             </div>
-                            <p>India</p>
+                            <p id="location">India</p>
                         </div>
                         <div class="other-info">
                             <div class="other-info-logo">
                                 <img src="./assets/icon-website-white.svg" alt="location svg">
                             </div>
-                            <a href="">website</a>
+                            <a href="" id="website" target="_blank">Profile</a>
                         </div>
                     </div>
                     <div class="other-info-col"></div>
