@@ -6,7 +6,20 @@ function getRepos(url) {
     return fetch(url)
     .then(data=>data.json());
 }
-
+const months = {
+    1:"January",
+    2:"Febuary",
+    3:"March",
+    4:"April",
+    5:"May",
+    6:"June",
+    7:"July",
+    8:"August",
+    9:"September",
+    10:"October",
+    11:"November",
+    12:"Descember",
+}
 const submitBtn = document.querySelector('input[type="submit"]');
 const input = document.querySelector('input[type = "text"]');
 submitBtn.addEventListener("click",(e)=>{
@@ -20,7 +33,7 @@ submitBtn.addEventListener("click",(e)=>{
     const following = document.getElementById("following");
     const location = document.getElementById("location");
     const website = document.getElementById("website");
-
+    const joinDate = document.querySelector(".profile-info > p");
 
     const username = input.value;
     getData(username)
@@ -44,7 +57,12 @@ submitBtn.addEventListener("click",(e)=>{
             location.innerText = "unknown";
             location.parentElement.style.opacity = "0.35";
         }
-        website.href = `https://www.github.com/${username}`;
+        // website.href = `https://www.github.com/${username}`;
+        website.href = data.html_url;
+        
+        let rawDate = data.created_at.split("-");
+        console.log(rawDate);
+        joinDate.innerText = `Joined ${rawDate[2].slice(0,2)} ${months[rawDate[1]]} ${rawDate[0]}`
     });
     
 })
