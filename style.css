@@ -4,6 +4,9 @@
   --dark-secondary: #f6fbff;
   --dark-tertiary: #1f2a48;
   --btn-primary: #0179fe;
+  --light-primary: #f6f8ff;
+  --light-secondary: #141d2f;
+  --light-tertiary: #fff;
 }
 
 * {
@@ -19,6 +22,7 @@ html, body {
 
 body {
   background-color: var(--dark-primary);
+  color: var(--dark-secondary);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -29,7 +33,6 @@ main {
   min-height: 100%;
   max-width: 425px;
   font-family: "Space Mono", monospace;
-  color: var(--dark-secondary);
   padding: 1rem;
 }
 
@@ -38,6 +41,9 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
 }
 
 .main-logo > h1 {
@@ -48,6 +54,7 @@ nav {
   display: flex;
   gap: 1rem;
   align-items: center;
+  cursor: pointer;
 }
 
 .theme-switcher > h2 {
@@ -126,7 +133,6 @@ nav {
   width: 75px;
   height: 75px;
   border-radius: 50%;
-  border: 1px solid var(--dark-secondary);
 }
 .user-card .card-header .profile-pic img {
   width: 100%;
@@ -141,7 +147,7 @@ nav {
 }
 .user-card .card-header .profile-info .profile-identity p {
   margin-top: 8px;
-  color: #0079ff;
+  color: var(--btn-primary);
 }
 .user-card .card-header .profile-info .profile-identity p span {
   font-size: 1rem;
@@ -193,7 +199,7 @@ nav {
 }
 .user-card .other-info-container .other-info-col .other-info a {
   text-decoration: none;
-  color: var(--dark-secondary);
+  color: inherit;
 }
 
 @media screen and (min-width: 426px) {
@@ -211,4 +217,29 @@ nav {
     flex-direction: row !important;
     justify-content: space-around;
   }
+}
+.light {
+  background-color: var(--light-primary);
+  color: var(--light-secondary);
+}
+
+.light-search {
+  background-color: var(--light-tertiary);
+  color: var(--light-secondary);
+}
+
+.user-aura-light {
+  background-color: var(--light-primary) !important;
+}
+
+.input-light {
+  color: var(--light-secondary) !important;
+}
+
+.input-light::-moz-placeholder {
+  color: var(--light-secondary) !important;
+}
+
+.input-light::placeholder {
+  color: var(--light-secondary) !important;
 }/*# sourceMappingURL=style.css.map */

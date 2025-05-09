@@ -5,6 +5,10 @@
     --dark-secondary : #f6fbff;
     --dark-tertiary : #1f2a48;
     --btn-primary : #0179fe;
+
+    --light-primary : #f6f8ff;
+    --light-secondary : #141d2f;
+    --light-tertiary : #fff;
 }
 *{
     margin: 0;
@@ -17,6 +21,7 @@ html , body{
 }
 body{
     background-color: var(--dark-primary);
+    color: var(--dark-secondary);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -26,7 +31,6 @@ main{
     min-height: 100%;
     max-width: 425px;
     font-family: "Space Mono", monospace;
-    color: var(--dark-secondary);
     padding: 1rem;
 }
 nav{
@@ -34,6 +38,7 @@ nav{
     display: flex;
     justify-content: space-between;
     align-items: center;
+    user-select: none;
 }
 .main-logo > h1{
     font-weight: 500;
@@ -42,6 +47,7 @@ nav{
     display: flex;
     gap: 1rem;
     align-items: center;
+    cursor: pointer;
 }
 .theme-switcher > h2{
     font-size: 1rem;
@@ -115,7 +121,7 @@ nav{
             width: 75px;
             height: 75px;
             border-radius: 50%;
-            border: 1px solid var(--dark-secondary);
+            // border: 1px solid var(--dark-secondary);
             img{
                 width: 100%;
                 object-fit: cover;
@@ -129,7 +135,7 @@ nav{
                 }
                 p{
                     margin-top: 8px;
-                    color: #0079ff;
+                    color: var(--btn-primary);
                     span{
                         font-size: 1rem;
                         font-weight: 500;
@@ -180,7 +186,7 @@ nav{
                 }
                 a{
                     text-decoration: none;
-                    color: var(--dark-secondary);
+                    color: inherit;
                 }
             }
         }
@@ -201,4 +207,22 @@ nav{
         flex-direction: row !important;
         justify-content: space-around;
     }
+}
+
+.light{
+    background-color: var(--light-primary);
+    color: var(--light-secondary);
+}
+.light-search{
+    background-color: var(--light-tertiary);
+    color: var(--light-secondary);
+}
+.user-aura-light{
+    background-color: var(--light-primary) !important;
+}
+.input-light{
+    color: var(--light-secondary) !important;
+}
+.input-light::placeholder{
+    color: var(--light-secondary) !important;
 }
