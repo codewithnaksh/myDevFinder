@@ -133,6 +133,7 @@ nav {
   width: 75px;
   height: 75px;
   border-radius: 50%;
+  overflow: hidden;
 }
 .user-card .card-header .profile-pic img {
   width: 100%;
