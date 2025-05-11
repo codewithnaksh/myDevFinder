@@ -85,6 +85,7 @@ nav{
         border: none;
         color: var(--dark-secondary);
         flex: 1;
+        border-radius: 8px;
     }
     input[type = "text"]:focus{
         outline: none;

@@ -9,6 +9,7 @@ function getRepos(url) {
     return fetch(url)
     .then(data=>data.json());
 }
+// months by number mapping
 const months = {
     1:"January",
     2:"Febuary",
@@ -45,12 +46,23 @@ submitBtn.addEventListener("click",(e)=>{
         console.log(data);
         profile.src = data.avatar_url;
         name.innerText = data.name;
+        if (data.name) {
+            name.innerText = data.name;
+            name.style.fontFamily = "inherit";
+            name.style.opacity = "1";
+        }
+        else{
+            name.innerText = "Name not found!";
+            name.style.fontSize = "1.2rem";
+            name.style.opacity = "0.35";
+            name.style.fontFamily = "cursive";
+        }
         profileUsername.innerText = data.login;
         bio.innerText = data.bio;
         getRepos(data.repos_url)
         .then((myRepos)=>{
             const reposLen = myRepos.length;
-            console.log("Number of repositories:",reposLen);
+            // console.log("Number of repositories:",reposLen);
             repos.innerText = reposLen;
         });
         followers.innerText = data.followers;
@@ -66,11 +78,13 @@ submitBtn.addEventListener("click",(e)=>{
         website.href = data.html_url;
         
         let rawDate = data.created_at.split("-");
-        console.log(rawDate);
+        // console.log(rawDate);
         joinDate.innerText = `Joined ${rawDate[2].slice(0,2)} ${months[rawDate[1]]} ${rawDate[0]}`
     });
     
 })
+
+// theme toggle functionality
 
 const themeSwitcher = document.querySelector(".theme-switcher");
 const searchBar = document.querySelector(".search-bar");
@@ -101,5 +115,5 @@ themeSwitcher.addEventListener('click',()=>{
     userCard.classList.toggle('light-search');
     userAura.classList.toggle('user-aura-light');
     input.classList.toggle('input-light');
-    console.log(locationNode.previousElementSibling.children[0]);
-})
+    // console.log(locationNode.previousElementSibling.children[0]);
+});
