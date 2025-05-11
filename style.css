@@ -169,7 +169,7 @@ nav {
   background-color: var(--dark-primary);
   border-radius: 10px;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
 }
 .user-card .user-aura .user-aura-col {
   display: flex;

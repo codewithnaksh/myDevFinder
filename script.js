@@ -11,15 +11,15 @@ function getRepos(url) {
 }
 // months by number mapping
 const months = {
-    1:"January",
-    2:"Febuary",
-    3:"March",
-    4:"April",
-    5:"May",
-    6:"June",
-    7:"July",
-    8:"August",
-    9:"September",
+    "01":"January",
+    "02":"Febuary",
+    "03":"March",
+    "04":"April",
+    "05":"May",
+    "06":"June",
+    "07":"July",
+    "08":"August",
+    "09":"September",
     10:"October",
     11:"November",
     12:"Descember",
@@ -28,64 +28,117 @@ const submitBtn = document.querySelector('input[type="submit"]');
 const input = document.querySelector('input[type = "text"]');
 submitBtn.addEventListener("click",(e)=>{
     e.preventDefault();
-    // console.log('clicked');
-    const profile = document.querySelector(".profile-pic > img");
-    const name = document.querySelector(".profile-identity > h2");
-    const bio = document.querySelector(".card-bio > p");
-    const repos = document.getElementById("repos");
-    const followers = document.getElementById("followers");
-    const following = document.getElementById("following");
-    const location = document.getElementById("location");
-    const website = document.getElementById("website");
-    const joinDate = document.querySelector(".profile-info > p");
-    const profileUsername = document.querySelector(".profile-identity > p");
+    
+    const cardContainer = document.querySelector(".user-card-container");
+    const userCard = document.createElement("div");
+    userCard.className = "user-card";
+    cardContainer.innerHTML = "";
+    // console.log(userCard.hasChildNodes());
 
     const username = input.value.trim();
     getData(username)
     .then((data)=>{
         console.log(data);
-        profile.src = data.avatar_url;
-        name.innerText = data.name;
-        if (data.name) {
-            name.innerText = data.name;
-            name.style.fontFamily = "inherit";
-            name.style.opacity = "1";
+
+        // data hai ya nhi wala logic
+        let location = data.location;
+        if(!data.location){
+            location = "unknown";
+        } 
+        let userName = data.name;
+        if (!userName) {
+            userName = "Name not found!";
         }
-        else{
-            name.innerText = "Name not found!";
-            name.style.fontSize = "1.2rem";
-            name.style.opacity = "0.35";
-            name.style.fontFamily = "cursive";
+        let bio = data.bio;
+        if (!bio) {
+            bio = "No bio..."
         }
-        profileUsername.innerText = data.login;
-        bio.innerText = data.bio;
+        
+        //fetching user repositories
         getRepos(data.repos_url)
         .then((myRepos)=>{
-            const reposLen = myRepos.length;
-            // console.log("Number of repositories:",reposLen);
-            repos.innerText = reposLen;
-        });
-        followers.innerText = data.followers;
-        following.innerText = data.following;
-        if(data.location){
-            location.innerText = data.location;
-        } 
-        else{
-            location.innerText = "unknown";
-            location.parentElement.style.opacity = "0.35";
-        }
-        // website.href = `https://www.github.com/${username}`;
-        website.href = data.html_url;
+            let reposLength = myRepos.length;
+            userCard.innerHTML = `
+         <div class="user-card">
+                <div class="card-header">
+                    <div class="profile-pic">
+                        <img src=${data.avatar_url} alt="profile pic">
+                    </div>
+                    <div class="profile-info">
+                        <div class="profile-identity">
+                            <h2>${userName}</h2>
+                            <p>${data.login}</p>
+                        </div>
+                        <p>${joinDate}</p>
+                    </div>
+                </div>
+                <div class="card-bio">
+                    <p>${bio}</p>
+                </div>
+                <div class="user-aura">
+                    <div class="user-aura-col">
+                        <p>Repos</p>
+                        <h3 id="repos">${reposLength}</h3>
+                    </div>
+                    <div class="user-aura-col">
+                        <p>Followers</p>
+                        <h3 id="followers">${data.followers}</h3>
+                    </div>
+                    <div class="user-aura-col">
+                        <p>Following</p>
+                        <h3 id="following">${data.following}</h3>
+                    </div>
+                </div>
+                <div class="other-info-container">
+                    <div class="other-info-col">
+                        <div class="other-info">
+                            <div class="other-info-logo">
+                                <img src="./assets/icon-location-white.svg" alt="location svg">
+                            </div>
+                            <p id="location">${location}</p>
+                        </div>
+                        <div class="other-info">
+                            <div class="other-info-logo">
+                                <img src="./assets/icon-website-white.svg" alt="location svg">
+                            </div>
+                            <a href=${data.html_url} id="website" target="_blank">Profile</a>
+                        </div>
+                    </div>
+                    <div class="other-info-col"></div>
+                </div>
+            </div>
+        `;
+        
+        cardContainer.appendChild(userCard);
+        
+        });        
+
+        
         
         let rawDate = data.created_at.split("-");
-        // console.log(rawDate);
-        joinDate.innerText = `Joined ${rawDate[2].slice(0,2)} ${months[rawDate[1]]} ${rawDate[0]}`
+        let joinDate = `Joined ${rawDate[2].slice(0,2)} ${months[rawDate[1]]} ${rawDate[0]}`;
+
+        
     });
     
 })
 
-// theme toggle functionality
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// theme toggle functionality
 const themeSwitcher = document.querySelector(".theme-switcher");
 const searchBar = document.querySelector(".search-bar");
 const userCard = document.querySelector(".user-card");
