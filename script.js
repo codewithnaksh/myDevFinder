@@ -37,6 +37,7 @@ submitBtn.addEventListener("click",(e)=>{
     const location = document.getElementById("location");
     const website = document.getElementById("website");
     const joinDate = document.querySelector(".profile-info > p");
+    const profileUsername = document.querySelector(".profile-identity > p");
 
     const username = input.value.trim();
     getData(username)
@@ -44,6 +45,7 @@ submitBtn.addEventListener("click",(e)=>{
         console.log(data);
         profile.src = data.avatar_url;
         name.innerText = data.name;
+        profileUsername.innerText = data.login;
         bio.innerText = data.bio;
         getRepos(data.repos_url)
         .then((myRepos)=>{
