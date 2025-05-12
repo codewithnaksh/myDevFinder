@@ -115,11 +115,10 @@ submitBtn.addEventListener("click", (e) => {
 });
 
 // theme toggle functionality
-
 function themeToggle() {
     const themeSwitcher = document.querySelector(".theme-switcher");
     const searchBar = document.querySelector(".search-bar");
-    const userCard = document.querySelector(".user-card");
+    const userCard = document.querySelector(".user-card-container");
     const userAura = document.querySelector(".user-aura");
     const locationNode = document.querySelector("#location");
     const websiteNode = document.querySelector("#website");
@@ -134,6 +133,7 @@ function themeToggle() {
             themeLogo[1].src = "./assets/icon-moon.svg";
             locationLogo.src = "./assets/icon-location.svg";
             websiteLogo.src = "./assets/icon-website.svg";
+            // userCard.style.backgroundColor = "var(--light-tertiary) !important"
         } else {
             themeMode[1].textContent = "LIGHT";
             themeLogo[1].src = "./assets/icon-sun.svg";
