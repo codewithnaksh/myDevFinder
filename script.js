@@ -109,40 +109,41 @@ submitBtn.addEventListener("click", (e) => {
                 </div>
             </div>
         `;
-
       cardContainer.appendChild(userCard);
-    });
+    }).then(()=>themeToggle());
   });
 });
 
 // theme toggle functionality
-const themeSwitcher = document.querySelector(".theme-switcher");
-const searchBar = document.querySelector(".search-bar");
-const userCard = document.querySelector(".user-card");
-const userAura = document.querySelector(".user-aura");
-const locationNode = document.querySelector("#location");
-const websiteNode = document.querySelector("#website");
 
-themeSwitcher.addEventListener("click", () => {
-  const themeMode = themeSwitcher.childNodes;
-  const themeLogo = themeMode[3].childNodes;
-  let locationLogo = locationNode.previousElementSibling.children[0];
-  let websiteLogo = websiteNode.previousElementSibling.children[0];
-  if (themeMode[1].textContent == "LIGHT") {
-    themeMode[1].textContent = "DARK";
-    themeLogo[1].src = "./assets/icon-moon.svg";
-    locationLogo.src = "./assets/icon-location.svg";
-    websiteLogo.src = "./assets/icon-website.svg";
-  } else {
-    themeMode[1].textContent = "LIGHT";
-    themeLogo[1].src = "./assets/icon-sun.svg";
-    locationLogo.src = "./assets/icon-location-white.svg";
-    websiteLogo.src = "./assets/icon-website-white.svg";
-  }
-  document.body.classList.toggle("light");
-  searchBar.classList.toggle("light-search");
-  userCard.classList.toggle("light-search");
-  userAura.classList.toggle("user-aura-light");
-  input.classList.toggle("input-light");
-  // console.log(locationNode.previousElementSibling.children[0]);
-});
+function themeToggle() {
+    const themeSwitcher = document.querySelector(".theme-switcher");
+    const searchBar = document.querySelector(".search-bar");
+    const userCard = document.querySelector(".user-card");
+    const userAura = document.querySelector(".user-aura");
+    const locationNode = document.querySelector("#location");
+    const websiteNode = document.querySelector("#website");
+    
+    themeSwitcher.addEventListener("click", () => {
+        const themeMode = themeSwitcher.childNodes;
+        const themeLogo = themeMode[3].childNodes;
+        let locationLogo = locationNode.previousElementSibling.children[0];
+        let websiteLogo = websiteNode.previousElementSibling.children[0];
+        if (themeMode[1].textContent == "LIGHT") {
+            themeMode[1].textContent = "DARK";
+            themeLogo[1].src = "./assets/icon-moon.svg";
+            locationLogo.src = "./assets/icon-location.svg";
+            websiteLogo.src = "./assets/icon-website.svg";
+        } else {
+            themeMode[1].textContent = "LIGHT";
+            themeLogo[1].src = "./assets/icon-sun.svg";
+            locationLogo.src = "./assets/icon-location-white.svg";
+            websiteLogo.src = "./assets/icon-website-white.svg";
+        }
+        document.body.classList.toggle("light");
+        searchBar.classList.toggle("light-search");
+        userCard.classList.toggle("light-search");
+        userAura.classList.toggle("user-aura-light");
+        input.classList.toggle("input-light");
+    });    
+}

@@ -1,35 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>myDev finder</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
     <main>
-        <nav>
-            <div class="main-logo">
-                <h1>myDevfinder</h1>
-            </div>
-            <div class="theme-switcher">
-                <h2>LIGHT</h2>
-                <div class="theme-logo">
-                    <img src="./assets/icon-sun.svg" alt="moon svg">
+      <nav>
+        <div class="main-logo">
+          <h1>myDevfinder</h1>
+        </div>
+        <div class="theme-switcher">
+          <h2>LIGHT</h2>
+          <div class="theme-logo">
+            <img src="./assets/icon-sun.svg" alt="moon svg" />
+          </div>
+        </div>
+      </nav>
+      <section id="main">
+        <form class="search-bar">
+          <div class="search-icon">
+            <img src="./assets/icon-search.svg" alt="search svg" />
+          </div>
+          <input
+            type="text"
+            placeholder="Search Github username..."
+            name="username"
+            required
+            spellcheck="false" />
+          <input type="submit" value="Search" />
+        </form>
+        <div class="user-card-container">
+          <div class="user-card">
+            <div class="card-header">
+              <div class="profile-pic">
+                <img class="skeleton" />
+              </div>
+              <div class="profile-info">
+                <div class="profile-identity">
+                  <h2 class="skeleton skeleton-text"></h2>
+                  <p class="skeleton skeleton-text"></p>
                 </div>
+                <p class="skeleton skeleton-text skeleton-text-half"></p>
+              </div>
             </div>
-        </nav>
-        <section id="main">
-            <form class="search-bar">
-                <div class="search-icon">
-                    <img src="./assets/icon-search.svg" alt="search svg">
+            <div class="card-bio">
+              <p class="skeleton skeleton-text"></p>
+              <p class="skeleton skeleton-text"></p>
+              <p class="skeleton skeleton-text"></p>
+              <p class="skeleton skeleton-text skeleton-text-half"></p>
+            </div>
+            <div class="user-aura skeleton skeleton-container"></div>
+            <div class="other-info-container">
+              <div class="other-info-col">
+                <div
+                  class="other-info ">
+                  <div class="other-info-logo">
+                    <img src="./assets/icon-location-white.svg" alt="location svg">
+                  </div>
+                  <p id="location" class="skeleton skeleton-text skeleton-text-mini"></p>
                 </div>
-                <input type="text" placeholder="Search Github username..." name="username" required spellcheck="false">
-                <input type="submit" value="Search">
-            </form>
-            <div class="user-card-container"></div>
-        </section>
+                <div
+                  class="other-info">
+                  <div class="other-info-logo">
+                    <img src="./assets/icon-website-white.svg" alt="location svg">
+                  </div>
+                  <a href="${data.html_url}" id="website" target="_blank" class="skeleton skeleton-text skeleton-text-mini"
+                    ></a
+                  >
+                </div>
+              </div>
+              <div class="other-info-col"></div>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
     <script src="script.js"></script>
-</body>
+  </body>
 </html>
