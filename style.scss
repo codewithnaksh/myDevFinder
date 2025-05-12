@@ -274,3 +274,40 @@ nav {
   margin-bottom: 0.5rem;
   border-radius: 0.25rem;
 }
+
+// pop amimation
+
+@keyframes popup-alert {
+    0% {
+        transform: scale(0.5);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.1);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.popup-alert {
+    font-family: "Space Mono", monospace;
+    // position: absolute;
+    // left: 25%;
+    animation: popup-alert 0.3s ease-out;
+    background-color: var(--dark-primary);
+    color: var(--dark-secondary);
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.4);
+    text-align: center;
+}
+
+.alert-container{
+    box-sizing: content-box;
+    height: 403.4px;
+    display: grid;
+    place-content: center;
+}

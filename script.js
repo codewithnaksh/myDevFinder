@@ -1,6 +1,16 @@
 function getData(username) {
   return fetch(`https://api.github.com/users/${username}`).then((data) => {
-    if (!data.ok) throw new Error("User not found ⚠️");
+    if (!data.ok) {
+        console.log(data);
+        const userContainer = document.querySelector(".user-card-container");
+        userContainer.classList.add("alert-container");
+        const error = document.createElement("div");
+        error.classList = "popup-alert";
+        error.textContent = "User not found ⚠️";
+        userContainer.append(error);
+        // console.log(error);
+        throw new Error("User not found ⚠️");
+    }
     return data.json();
   });
 }
